@@ -7,8 +7,8 @@
     - source: salt://scheduling/munge.key
     - mode: 400
     - user: munge
-  - require:
-    - user: munge
+    - require:
+      - user: munge
 
 munge:
   pkg:
