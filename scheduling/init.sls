@@ -34,6 +34,11 @@ slurm-user:
     - source: salt://scheduling/slurm.conf
     - template: jinja
 
+/etc/slurm/slurm.conf:
+  file:
+    - managed
+    - source: salt://scheduling/cgroups.conf
+
 slurm:
   user:
     - present
@@ -57,4 +62,5 @@ slurm:
       - user: slurm
       - pkg: munge
       - file: /etc/slurm/slurm.conf
+      - file: /etc/slurm/cgroups.confg
 
