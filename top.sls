@@ -1,5 +1,5 @@
 
 base:
-    '*':
-      - lhcb
-      - scheduling
+  '*':
+    - lhcb
+    - scheduling
