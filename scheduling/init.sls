@@ -1,7 +1,7 @@
 
 # Munch provides authentication for SLURM
 
-munge.key:
+/etc/munge/munge.key:
   file:
     - managed
     - source: salt://scheduling/munge.key
