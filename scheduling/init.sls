@@ -62,5 +62,5 @@ slurm:
       - user: slurm
       - pkg: munge
       - file: /etc/slurm/slurm.conf
-      - file: /etc/slurm/cgroups.confg
+      - file: /etc/slurm/cgroups.conf
 
