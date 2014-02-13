@@ -2,3 +2,4 @@
 base:
     '*':
       - lhcb
+      - scheduling
