@@ -34,10 +34,10 @@ slurm-user:
     - source: salt://scheduling/slurm.conf
     - template: jinja
 
-/etc/slurm/cgroups.conf:
+/etc/slurm/cgroup.conf:
   file:
     - managed
-    - source: salt://scheduling/cgroups.conf
+    - source: salt://scheduling/cgroup.conf
 
 slurm:
   user:
@@ -62,5 +62,5 @@ slurm:
       - user: slurm
       - pkg: munge
       - file: /etc/slurm/slurm.conf
-      - file: /etc/slurm/cgroups.conf
+      - file: /etc/slurm/cgroup.conf
 
