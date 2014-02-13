@@ -47,7 +47,6 @@ slurm:
       - slurm-slurm-sql:       http://babushk.in/files/slurm-sql-2.6.6-2.el6.x86_64.rpm
       - slurm-torque:          http://babushk.in/files/slurm-torque-2.6.6-2.el6.x86_64.rpm
   service.running:
-    - running
     - enable: True
     - require:
       - pkg: slurm
