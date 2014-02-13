@@ -1,4 +1,4 @@
 
-# Salt configuration for scientific compute cluster
+# Setup for a scientific compute cluster
 
 
