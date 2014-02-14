@@ -21,11 +21,6 @@ munge:
       - pkg: munge
       - file: /etc/munge/munge.key
 
-slurm-user:
-  user.present:
-    - name: slurm
-    - shell: /bin/bash
-
 # The SLURM scheduling system
 
 /etc/slurm/slurm.conf:
@@ -38,6 +33,12 @@ slurm-user:
   file:
     - managed
     - source: salt://scheduling/cgroup.conf
+
+/var/spool/slurm:
+  file.directory:
+    - user: slurm
+    - require:
+      - user: slurm
 
 slurm:
   user:
@@ -63,4 +64,5 @@ slurm:
       - pkg: munge
       - file: /etc/slurm/slurm.conf
       - file: /etc/slurm/cgroup.conf
+      - file: /var/spool/slurm
 
