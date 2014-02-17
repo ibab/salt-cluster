@@ -175,12 +175,6 @@ user: root
 # The external auth system uses the Salt auth modules to authenticate and
 # validate users to access areas of the Salt system.
 #
-external_auth:
-  pam:
-    igor:
-      - .*
-      - '@sudo'
-
 
 # Time (in seconds) for a newly generated token to live. Default: 12 hours
 #token_expire: 43200
@@ -283,7 +277,7 @@ external_auth:
 
 file_roots:
   base:
-    - /home/igor/Code/Compute/e5/salt/root
+    - /srv/salt
 
 # The hash_type is the hash to use when discovering the hash of a file on
 # the master server. The default is md5, but sha1, sha224, sha256, sha384
