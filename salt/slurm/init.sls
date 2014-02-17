@@ -1,10 +1,10 @@
 
-# Munch provides authentication for SLURM
+# Munge provides authentication for SLURM
 
 /etc/munge/munge.key:
   file:
     - managed
-    - source: salt://scheduling/munge.key
+    - source: salt://slurm/munge.key
     - mode: 400
     - user: munge
     - require:
@@ -26,13 +26,13 @@ munge:
 /etc/slurm/slurm.conf:
   file:
     - managed
-    - source: salt://scheduling/slurm.conf
+    - source: salt://slurm/slurm.conf
     - template: jinja
 
 /etc/slurm/cgroup.conf:
   file:
     - managed
-    - source: salt://scheduling/cgroup.conf
+    - source: salt://slurm/cgroup.conf
 
 /var/spool/slurm:
   file.directory:
@@ -58,7 +58,7 @@ slurm:
       - slurm-sql: http://babushk.in/files/slurm-sql-2.6.6-2.el6.x86_64.rpm 
       - slurm-torque: http://babushk.in/files/slurm-torque-2.6.6-2.el6.x86_64.rpm
   service.running:
-    - require:
+    - watch:
       - pkg: slurm
       - user: slurm
       - pkg: munge
