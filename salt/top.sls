@@ -1,6 +1,7 @@
 
 base:
   '*':
-    - salt
+    #- salt
     #- lhcb
-    #- scheduling
+    - slurm
+    - ldap
