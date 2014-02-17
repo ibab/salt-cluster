@@ -1,5 +1,6 @@
 
 base:
   '*':
+    - salt
     #- lhcb
-    - scheduling
+    #- scheduling
