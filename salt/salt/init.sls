@@ -1,13 +1,19 @@
 
-{% if grains['hostname'] == pillar['salt']['master'] %}
+{% if grains['host'] == pillar['salt']['master'] %}
 
 salt-master:
   pkg:
     - installed
+  service:
+    - running
+    - watch:
+      - pkg: salt-master
+      - file: /etc/salt/master
 
 /etc/salt/master:
-  file:
-    - managed
+  file.managed:
+    - template: jinja
+    - source: salt://salt/master
     - require:
       - pkg: salt-master
 
@@ -16,10 +22,18 @@ salt-master:
 salt-minion:
   pkg:
     - installed
+  service:
+    - running
+    - require:
+      - file: /etc/salt/minion
+    - watch:
+      - pkg: salt-minion
+      - file: /etc/salt/minion
 
 /etc/salt/minion:
-  file:
-    - managed
+  file.managed:
+    - template: jinja
+    - source: salt://salt/minion
     - require:
       - pkg: salt-minion
 
