@@ -1,5 +1,5 @@
 
 
 salt:
-  master: ip-10-35-187-183
+  master: ip-10-73-201-251
 

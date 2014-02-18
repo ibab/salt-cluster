@@ -1,6 +1,6 @@
 
 ldap:
-  host: ip-10-35-187-183
+  host: ip-10-224-75-206
   suffix: dc=compute,dc=cluster
   root: cn=Admin,dc=compute,dc=cluster
   pass: clusterkey

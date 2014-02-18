@@ -4,10 +4,11 @@ openldap-clients:
   pkg:
     - installed
 
-/etc/openlap/ldap.conf:
+/etc/openldap/ldap.conf:
   file.managed:
     - source: salt://ldap/ldap.conf
     - template: jinja
+    - replace: True
     - require:
       - pkg: openldap-clients
 
@@ -51,5 +52,7 @@ load-ldif:
     - require:
       - file: /etc/openldap/slapd.conf
       - file: /tmp/db.ldif
+      - file: /etc/openldap/ldap.conf
 
 {% endif %}
+
